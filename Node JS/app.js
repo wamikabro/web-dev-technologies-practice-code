@@ -3,3 +3,5 @@ function sayHello(name) {
 }
 
 sayHello("Wamique");
+
+console.log(global); // global exists here instead of window
