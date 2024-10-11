@@ -6,3 +6,5 @@ const newNote = {
 };
 
 console.log(newNote);
+
+export { note };

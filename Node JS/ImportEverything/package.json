@@ -1,11 +1,8 @@
 {
-  "name": "noteapp",
+  "name": "importeverything",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
-  "bin": {
-    "note": "script.js"
-  },
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
