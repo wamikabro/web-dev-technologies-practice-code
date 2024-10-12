@@ -2,9 +2,9 @@
   "name": "noteapp",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "index.js",
   "bin": {
-    "note": "script.js"
+    "note": "index.js"
   },
   "type": "module",
   "scripts": {
