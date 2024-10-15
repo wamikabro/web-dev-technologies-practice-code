@@ -84,7 +84,10 @@ yargs(hideBin(process.argv))
     "clean",
     "remove all notes",
     () => {},
-    async (argv) => {}
+    async (argv) => {
+      await removeAllNotes();
+      console.log("Database Reset.");
+    }
   )
   .demandCommand(1)
   .parse();
