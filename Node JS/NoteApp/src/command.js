@@ -7,6 +7,7 @@ import {
   removeNote,
   removeAllNotes,
 } from "./notes.js";
+import { listNotes } from "./utils.js";
 
 yargs(hideBin(process.argv))
   .command(
@@ -33,7 +34,10 @@ yargs(hideBin(process.argv))
     "all",
     "get all notes",
     () => {},
-    async (argv) => {}
+    async (argv) => {
+      var notes = await getAllNotes();
+      listNotes(notes);
+    }
   )
   .command(
     "find <filter>",
