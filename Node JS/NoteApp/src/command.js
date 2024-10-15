@@ -20,7 +20,7 @@ yargs(hideBin(process.argv))
       });
     },
     async (args) => {
-      var tags = args.tags.split(",");
+      var tags = args.tags ? args.tags.split(",") : [];
       var note = await newNote(args.note, tags);
       console.log("New Note: ", note.id);
     }
