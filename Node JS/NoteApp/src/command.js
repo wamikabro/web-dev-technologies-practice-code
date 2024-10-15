@@ -63,7 +63,10 @@ yargs(hideBin(process.argv))
         description: "The id of the note you want to remove",
       });
     },
-    async (argv) => {}
+    async (argv) => {
+      var id = await removeNote(argv.id);
+      console.log(id);
+    }
   )
   .command(
     "web [port]",

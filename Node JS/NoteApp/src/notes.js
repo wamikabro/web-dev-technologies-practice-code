@@ -23,7 +23,7 @@ export async function findNotes(filterString) {
 }
 
 export async function removeNote(id) {
-  var { notes } = await getAllNotes();
+  var notes = await getAllNotes();
   var match = notes.find((note) => note.id === id);
 
   if (match) {
