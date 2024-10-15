@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 
-const DB_PATH = new URL("../db.json", import.meta.url).pathname;
+const DB_PATH = new URL("../db.json", import.meta.url);
 
 // get what's in databse and parse it to js object
 export async function getDB() {
