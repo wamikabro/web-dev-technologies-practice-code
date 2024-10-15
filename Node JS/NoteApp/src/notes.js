@@ -18,7 +18,7 @@ export async function getAllNotes() {
 export async function findNotes(filterString) {
   var notes = await getAllNotes();
   return notes.filter((note) => {
-    note.content.toLowerCase().includes(filterString.toLowerCase());
+    return note.content.toLowerCase().includes(filterString.toLowerCase());
   });
 }
 

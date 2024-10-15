@@ -49,7 +49,10 @@ yargs(hideBin(process.argv))
         type: "string",
       });
     },
-    async (argv) => {}
+    async (argv) => {
+      const matches = await findNotes(argv.filter);
+      console.log(matches);
+    }
   )
   .command(
     "remove <id>",
