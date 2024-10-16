@@ -1,4 +1,5 @@
 import { expect, jest } from "@jest/globals"; // we need to import jest globals in ES6
+import { describe } from "yargs";
 
 // Making a Mock for db.js's methods
 // So that if I'll import db.js, it won't import actual but mocked version
@@ -24,39 +25,40 @@ beforeEach(() => {
 });
 
 /* Write some tests */
+describe("CLI App", () => {
+  test("newNote inserts data and returns it", async () => {
+    var note = {
+      content: "this is my note",
+      id: 1,
+      tags: ["hello"],
+    };
+    insertDB.mockResolvedValue(note);
 
-test("newNote inserts data and returns it", async () => {
-  var note = {
-    content: "this is my note",
-    id: 1,
-    tags: ["hello"],
-  };
-  insertDB.mockResolvedValue(note);
+    var result = await newNote(note.content, note.tags);
+    expect(result.content).toEqual(note.content);
+    expect(result.tags).toEqual(note.tags);
+  });
 
-  var result = await newNote(note.content, note.tags);
-  expect(result.content).toEqual(note.content);
-  expect(result.tags).toEqual(note.tags);
-});
+  test("getAllNotes returns all notes", async () => {
+    const db = {
+      notes: ["note1", "note2", "note3"],
+    };
+    getDB.mockResolvedValue(db);
 
-test("getAllNotes returns all notes", async () => {
-  const db = {
-    notes: ["note1", "note2", "note3"],
-  };
-  getDB.mockResolvedValue(db);
+    const result = await getAllNotes();
+    expect(result).toEqual(db.notes);
+  });
 
-  const result = await getAllNotes();
-  expect(result).toEqual(db.notes);
-});
+  test("removeNote does nothing if id is not found", async () => {
+    const notes = [
+      { id: 1, content: "note 1" },
+      { id: 2, content: "note 2" },
+      { id: 3, content: "note 3" },
+    ];
+    saveDB.mockResolvedValue(notes);
 
-test("removeNote does nothing if id is not found", async () => {
-  const notes = [
-    { id: 1, content: "note 1" },
-    { id: 2, content: "note 2" },
-    { id: 3, content: "note 3" },
-  ];
-  saveDB.mockResolvedValue(notes);
-
-  const idToRemove = 4;
-  const result = await removeNote(idToRemove);
-  expect(result).toBeUndefined();
+    const idToRemove = 4;
+    const result = await removeNote(idToRemove);
+    expect(result).toBeUndefined();
+  });
 });
