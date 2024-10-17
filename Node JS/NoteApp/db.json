@@ -1,3 +1,27 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "tags": [],
+      "content": "Hello",
+      "id": 1729169952555
+    },
+    {
+      "tags": [
+        "hello",
+        " honey"
+      ],
+      "content": "Hi",
+      "id": 1729169971416
+    },
+    {
+      "tags": [],
+      "content": "New note",
+      "id": 1729170030125
+    },
+    {
+      "tags": [],
+      "content": "shh",
+      "id": 1729170170322
+    }
+  ]
 }
