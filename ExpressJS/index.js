@@ -1,5 +1,5 @@
 import express from "express";
-
+import open from "open";
 // we're returned with web application dealing with network requests using http
 const app = express();
 
@@ -10,5 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`App is running on port ${port}`);
+  const address = `http://localhost:${port}`;
+  console.log(`App is running on port ${address}`);
+  open(address);
 });
