@@ -9,5 +9,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^130.0.0",
+    "dotenv": "^16.4.5",
+    "selenium-webdriver": "^4.25.0"
+  }
 }
